@@ -14,7 +14,7 @@ var transform = module.exports.transform = function(samples) {
 		var med = sm.median(sample);
 		var zj = [];
 		sample.forEach(function(s) {
-			vals.push(Math.abs(med - s));
+			z.push(Math.abs(med - s));
 		});
 		z.push(zj);
 	});

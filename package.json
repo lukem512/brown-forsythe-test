@@ -1,0 +1,32 @@
+{
+  "name": "brown-forsythe-test",
+  "version": "0.0.1",
+  "description": "Perform the Brown-Forsythe statistical test for equality of group variances",
+  "main": "src/brown-forsythe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukem512/brown-forsythe-test.git"
+  },
+  "keywords": [
+    "Brown-Forsythe",
+    "statistics",
+    "anova",
+    "analysis",
+    "of",
+    "variance",
+    "equality",
+    "stats"
+  ],
+  "author": "Luke Mitchell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukem512/brown-forsythe-test/issues"
+  },
+  "homepage": "https://github.com/lukem512/brown-forsythe-test",
+  "dependencies": {
+    "statistical-methods": "^1.0.3"
+  }
+}
