@@ -14,7 +14,7 @@ var transform = module.exports.transform = function(samples) {
 		var med = sm.median(sample);
 		var zj = [];
 		sample.forEach(function(s) {
-			z.push(Math.abs(med - s));
+			zj.push(Math.abs(med - s));
 		});
 		z.push(zj);
 	});
@@ -27,6 +27,7 @@ var test = module.exports.test = function(samples) {
 	var z = transform(samples);
 
 	// Compute N, the total number of observations
+	// and p, the number of samples
 	var N = 0, p = samples.length;
 	samples.forEach(function(sample) {
 		N += sample.length;
@@ -46,15 +47,16 @@ var test = module.exports.test = function(samples) {
 		// The number of observations in sample i
 		var n = samples[i].length;
 
-		for (var j = 0; j < n; j++) {
+		// The mean of all zij for sample i
+		var zidot = sm.mean(z[i]);
 
-			// The mean of all zij for sample i
-			var zidot = sm.mean(z[i]);
-			var dz = (zidot - zdotdot);
+		var dz = (zidot - zdotdot);
+		numerator += (n * (dz * dz));
 
-			numerator += n * (dz*dz);
-			denominator += z[i][j] - zidot;
-		}
+		denominator += sm.sum(z[i].map(function(zij) {
+			var dz = (zij - zidot);
+			return (dz * dz);
+		}));
 	}
 
 	// Add divisors
