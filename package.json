@@ -1,6 +1,6 @@
 {
   "name": "brown-forsythe-test",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Perform the Brown-Forsythe statistical test for equality of group variances",
   "main": "src/brown-forsythe.js",
   "scripts": {
